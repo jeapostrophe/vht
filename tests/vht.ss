@@ -3,7 +3,7 @@
          "../handle.ss"
          "../versioned-ht.ss")
 
-(define r (make-root "root"))
+(define r (make-root (build-path (current-directory) "root")))
 (define c (make-container r))
 (define vht1 (make-versioned-ht c))
 (define vht2 (make-versioned-ht c))

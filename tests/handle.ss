@@ -13,7 +13,7 @@
  (template-string? #"~a~a") => #f
  (template-string? #"~a") => #f
  
- (local [(define r (make-root "root"))]
+ (local [(define r (make-root (build-path (current-directory) "root")))]
    (test
     (resource? (make-resource r (random)))
     (resource? (make-resource r #:template "example~a" (random)))
@@ -24,7 +24,7 @@
     (delete-directory/files (handle-path r))))
  
  
- (local [(define r (make-root "root"))
+ (local [(define r (make-root (build-path (current-directory) "root")))
          (define rrs
            (for/list ([i (in-range 100)]) (random)))]
    (define rs 
